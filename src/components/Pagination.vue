@@ -40,7 +40,7 @@ const PAGES_TO_SHOW = 5
             :disabled="currentPage === 1"
             style="border: none; border-radius: 50%; color: #333"
           >
-            <font-awesome-icon :icon="['fas', 'backward-step']" />
+            <font-awesome-icon :icon="['fas', 'backward-step']" style="color: #808080" />
           </button>
         </li>
 
@@ -52,14 +52,14 @@ const PAGES_TO_SHOW = 5
             :disabled="currentPage === 1"
             style="border: none; border-radius: 50%; color: #333"
           >
-            <font-awesome-icon :icon="['fas', 'chevron-left']" />
+            <font-awesome-icon :icon="['fas', 'chevron-left']" style="color: #808080" />
           </button>
         </li>
 
         <!-- Mostrar páginas -->
         <li v-for="page in getPagesToShow()" :key="page" class="page-item">
           <button
-            class="page-link"
+            class="page-link text-secondary"
             @click="changePage(page)"
             :style="getPageStyles(page)"
             style="border: none; border-radius: 50%"
@@ -76,7 +76,7 @@ const PAGES_TO_SHOW = 5
             :disabled="currentPage === totalPages"
             style="border: none; border-radius: 50%; color: #333"
           >
-            <font-awesome-icon :icon="['fas', 'chevron-right']" />
+            <font-awesome-icon :icon="['fas', 'chevron-right']" style="color: #808080" />
           </button>
         </li>
 
@@ -88,7 +88,7 @@ const PAGES_TO_SHOW = 5
             :disabled="currentPage === totalPages"
             style="border: none; border-radius: 50%; color: #333"
           >
-            <font-awesome-icon :icon="['fas', 'forward-step']" />
+            <font-awesome-icon :icon="['fas', 'forward-step']" style="color: #808080" />
           </button>
         </li>
       </ul>

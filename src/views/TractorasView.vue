@@ -12,6 +12,10 @@
         <td>{{ item['Nombre Conductor'] }}</td>
       </template>
     </DwTable>
+    <div class="text-secondary">
+      De {{ (currentPage - 1) * itemsPerPage + 1 }} a
+      {{ Math.min(currentPage * itemsPerPage, totalItems) }} de {{ totalItems }} registros
+    </div>
     <Pagination
       :currentPage="currentPage"
       :totalPages="totalPages"
