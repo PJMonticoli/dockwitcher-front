@@ -1,0 +1,36 @@
+.sidebar {
+  background-color: white; //Cambiar esto por una variable de color (secondary)
+  width: 230px;
+  height: 100vh;
+  color: $primary;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.side-options {
+  padding-top: 10px;
+
+  ul {
+    list-style: none;
+
+    li {
+      margin: 10px 0;
+    }
+  }
+}
+
+#collapse-btn {
+  background-color: white;
+  border: none;
+}
