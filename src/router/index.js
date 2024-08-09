@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import TractorasView from '@/views/TractorasView.vue'
-import NewTractorasView from '@/views/NewTractorasView.vue'
+import DashboardView from '@/views/DashboardView.vue'
+import IncommingsView from '@/views/IncommingsView.vue'
+import OutgoingsView from '@/views/OutgoingsView.vue'
+import TrucksView from '@/views/TrucksView.vue'
+import DriversView from '@/views/DriversView.vue'
+import PlanningView from '@/views/PlanningView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,15 +22,43 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/tractoras',
-      name: 'tractoras',
-      component: TractorasView
+      path: '/planning',
+      children: [
+        {
+          path:'dashboard',
+          component: PlanningView
+
+        },
+        {
+          path:'incommings',
+          component: IncommingsView
+
+        },
+        {
+          path:'outgoings',
+          component: OutgoingsView
+
+        },
+
+      ]
     },
     {
-      path: '/tractorasnew',
-      name: 'tractorasnew',
-      component: NewTractorasView
+      path: '/dashboard',
+      name: 'dashboard',
+      component: DashboardView
+    },
+   
+    {
+      path: '/trucks',
+      name: 'trucks',
+      component: TrucksView
+    },
+    {
+      path: '/drivers',
+      name: 'drivers',
+      component: DriversView
     }
+    
   ]
 })
 
