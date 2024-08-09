@@ -50,15 +50,6 @@ export const driversStore = defineStore('drivers', {
             direction: direction
           }
         })
-
-      // try {
-      //   totalPages.value = response.data.totalPages
-      //   totalItems.value = response.data.totalElements
-      //   items.value = response.data.content
-      //   // Emite el evento para actualizar el total de páginas, el total de items y los items
-      // } catch (error) {
-      //   console.error('Hubo un error al obtener los datos:', error)
-      // }
     }
   }
 })
