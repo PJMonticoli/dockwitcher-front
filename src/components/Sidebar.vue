@@ -70,7 +70,11 @@ import { RouterLink } from 'vue-router'
           </div>
         </li>
         <li>
-          <img id="control-muelle-icon" src="../assets/images/user-nurse-solid.svg" width="24" />
+          <img
+            id="control-muelle-icon"
+            src="../assets/images/truck-ramp-box-solid.svg"
+            width="24"
+          />
           Control de muelle
         </li>
         <li>
@@ -78,7 +82,7 @@ import { RouterLink } from 'vue-router'
           Transporte
         </li>
         <li>
-          <img id="configuration-icon" src="../assets/images/gear-solid.svg" width="24" />
+          <img id="configuration-icon" src="../assets/images/settings-icon.svg" width="24" />
           Configuración
         </li>
       </ul>
