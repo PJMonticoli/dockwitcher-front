@@ -1,26 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { format } from 'date-fns'
 import DwTable from '@/components/DwTable.vue'
 import Pagination from '@/components/Pagination.vue'
 import { driversStore } from '@/_stores/driversStore'
 import { storeToRefs } from 'pinia'
 
-const currentPage = ref(1) // pageable.pageNumber
+const currentPage = ref(0) // pageable.pageNumber (inicialmente 0 para la primera página)
 const totalItems = ref(0) // totalElements
 const totalPages = ref(0) // totalPages
 const items = ref([]) // content
-const pageSize = ref(10) // pageable.pageSize
+const pageSize = ref(10) // pageable.pageSize (inicialmente 10)
 
 const store = driversStore()
 const { content, pagination, sort } = storeToRefs(store)
 
 const updateCurrentPage = (page) => {
   currentPage.value = page
+  fetchDrivers()
 }
 
 const updatePageSize = (event) => {
   pageSize.value = parseInt(event.target.value)
+  currentPage.value = 0 // Reinicia a la primera página
+  fetchDrivers()
 }
 
 const updateTotalPages = (pages) => {
@@ -43,12 +46,20 @@ const formatDate = (date) => {
   return format(new Date(date), 'dd/MM/yyyy')
 }
 
+const fetchDrivers = () => {
+  store.getDrivers(currentPage.value, pageSize.value, 'nombre', 'asc')
+}
+
 onMounted(() => {
-  store.getDrivers(0, 10, 'nombre', 'asc');
+  fetchDrivers()
+})
+
+watch([currentPage, pageSize], () => {
+  fetchDrivers()
 })
 
 function changePage(page) {
-  store.getDrivers(page, 10, 'nombre', 'asc');
+  updateCurrentPage(page)
 }
 </script>
 
@@ -67,7 +78,6 @@ function changePage(page) {
         </select>
         <label for="itemsPerPage">Por página</label>
         <input type="text" placeholder="Buscar..." class="search-input ms-auto px-2" />
-        <Pagination :pagination="pagination" @change-page="changePage" />
       </div>
     </div>
     <div class="divider"></div>
@@ -90,6 +100,7 @@ function changePage(page) {
         <td class="p-3">{{ formatDate(item.fechaCaducidad) }}</td>
       </template>
     </DwTable>
+    <Pagination :pagination="pagination" @change-page="changePage" />
     <div class="d-flex justify-content-between align-items-start px-3 pb-3"></div>
   </div>
 </template>

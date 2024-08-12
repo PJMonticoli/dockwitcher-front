@@ -24,8 +24,8 @@ const PAGES_TO_SHOW = 5
 function changePage(page) {
   emits('changePage', page)
 }
+
 const getPagesToShow = () => {
-  // Si el total de páginas es menor a 5, muestra todas las páginas sino solo muestra 5
   const pageRange =
     props.pagination.totalPages < PAGES_TO_SHOW ? props.pagination.totalPages : PAGES_TO_SHOW
   const startPage = Math.max(
@@ -35,21 +35,20 @@ const getPagesToShow = () => {
   return [...Array(pageRange)].map((_, i) => startPage + i)
 }
 
-const getPageStyles = (page) => {
-  return {
-    'background-color': page === props.pagination.number ? 'rgb(246, 55, 93)' : 'transparent',
-    color: page === props.pagination.number ? '#fff' : '#333'
-  }
+const isCurrentPage = (page) => {
+  return page === props.pagination.number
 }
 </script>
 
 <template>
   <div>
-    <span
-      >De {{ pagination.number * pagination.size + 1 }} a
-      {{ Math.min(pagination.number * pagination.size + 1, pagination.totalElements) }} de
-      {{ pagination.totalElements }} registros</span
-    >
+    <span class="mx-2">
+      De {{ pagination.number * pagination.size + 1 }} a
+      {{
+        Math.min(pagination.number * pagination.size + pagination.size, pagination.totalElements)
+      }}
+      de {{ pagination.totalElements }} registros
+    </span>
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-end">
         <!-- Botón para retroceder a la primer página -->
@@ -79,9 +78,9 @@ const getPageStyles = (page) => {
         <!-- Mostrar páginas -->
         <li v-for="page in getPagesToShow()" :key="page" class="page-item">
           <button
-            class="page-link text-secondary"
+            class="page-link"
             @click="changePage(page - 1)"
-            :class="getPageStyles(page - 1)"
+            :class="{ active: isCurrentPage(page - 1) }"
             :disabled="page - 1 == pagination.number"
             style="border: none; border-radius: 50%"
           >
@@ -105,7 +104,7 @@ const getPageStyles = (page) => {
         <li class="page-item">
           <button
             class="page-link"
-            @click="changePage(totalPages)"
+            @click="changePage(pagination.totalPages - 1)"
             :disabled="pagination.last"
             style="border: none; border-radius: 50%; color: #333"
           >
