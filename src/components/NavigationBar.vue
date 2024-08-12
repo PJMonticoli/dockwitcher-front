@@ -10,7 +10,7 @@
         ><span class="enabled ms-1 fs-5 fw-medium">- Recepciones</span>
       </li>
       <li>
-        <button class="btn btn-navigation-bar">Nuevo</button>
+        <button class="btn btn-navigation-bar ms-2">Nuevo</button>
         <button class="btn btn-navigation-bar ms-2">Importar</button>
       </li>
     </ul>
