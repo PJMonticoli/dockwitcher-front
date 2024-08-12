@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, defineEmits, ref } from 'vue'
-
+import '../assets/scss/components/_pagination.scss'
 const props = defineProps({
   pagination: {
     type: Object,

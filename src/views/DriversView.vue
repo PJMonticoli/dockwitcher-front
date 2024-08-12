@@ -87,16 +87,16 @@ function changePage(page) {
         <th class="p-3">Nombre</th>
         <th class="p-3">Identificacion</th>
         <th class="p-3">Licencias</th>
-        <th class="p-3">Categoria</th>
+        <th class="p-3">Email</th>
+        <th class="p-3">Telefono</th>
         <th class="p-3">Caducidad</th>
       </template>
       <template v-slot="{ item }">
         <td class="p-3">{{ item.nombre }}</td>
         <td class="p-3">{{ item.identificacion }}</td>
         <td class="p-3">{{ item.licencia }}</td>
-        <td class="p-3">
-          {{ item.experiencia.categorias.map((categoria) => categoria.tipo).join(', ') }}
-        </td>
+        <td class="p-3">{{ item.email }}</td>
+        <td class="p-3">{{ item.telefono }}</td>
         <td class="p-3">{{ formatDate(item.fechaCaducidad) }}</td>
       </template>
     </DwTable>
