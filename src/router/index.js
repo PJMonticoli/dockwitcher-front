@@ -7,7 +7,6 @@ import OutgoingsView from '@/views/OutgoingsView.vue'
 import TrucksView from '@/views/TrucksView.vue'
 import DriversView from '@/views/DriversView.vue'
 import PlanningView from '@/views/PlanningView.vue'
-import TestTableView from '@/views/TestTableView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,11 +53,6 @@ const router = createRouter({
       path: '/drivers',
       name: 'drivers',
       component: DriversView
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: TestTableView
     }
   ]
 })
