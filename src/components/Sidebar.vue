@@ -65,8 +65,8 @@ import { RouterLink } from 'vue-router'
           </div>
           <div class="collapse" id="collapseCamiones">
             <div>
-              <p><RouterLink to="/trucks">Camiones</RouterLink></p>
               <p><RouterLink to="/drivers">Conductores</RouterLink></p>
+              <p><RouterLink to="/trucks">Camiones</RouterLink></p>
             </div>
           </div>
         </li>
