@@ -13,37 +13,8 @@ import { RouterLink } from 'vue-router'
         <li>
           <div class="d-flex justify-content-between align-items-center">
             <div class="">
-              <img id="planification-icon" src="../assets/images/icons8-todo-list-24.png" />
-              Camiones
-            </div>
-            <button
-              class="btn btn-primary"
-              id="collapse-btn"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseCamiones"
-              aria-expanded="false"
-              aria-controls="collapseCamiones"
-            >
-              <img
-                id="collapse-icon"
-                src="../assets/images/icons8-chevron-abajo-24.png"
-                width="15"
-              />
-            </button>
-          </div>
-          <div class="collapse" id="collapseCamiones">
-            <div>
-              <p><RouterLink to="/trucks">Camiones</RouterLink></p>
-              <p><RouterLink to="/drivers">Conductores</RouterLink></p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="">
-              <img id="planification-icon" src="../assets/images/icons8-todo-list-24.png" />
-              Planificacion
+              <img id="planification-icon" src="../assets/images/sliders-solid.svg" width="24" />
+              Planificación
             </div>
             <button
               class="btn btn-primary"
@@ -69,6 +40,37 @@ import { RouterLink } from 'vue-router'
             </div>
           </div>
         </li>
+
+        <li>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="">
+              <img id="listado-icon" src="../assets/images/icons8-todo-list-24.png" />
+              Listados
+            </div>
+            <button
+              class="btn btn-primary"
+              id="collapse-btn"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseCamiones"
+              aria-expanded="false"
+              aria-controls="collapseCamiones"
+            >
+              <img
+                id="collapse-icon"
+                src="../assets/images/icons8-chevron-abajo-24.png"
+                width="15"
+              />
+            </button>
+          </div>
+          <div class="collapse" id="collapseCamiones">
+            <div>
+              <p><RouterLink to="/trucks">Camiones</RouterLink></p>
+              <p><RouterLink to="/drivers">Conductores</RouterLink></p>
+            </div>
+          </div>
+        </li>
+
         <li>
           <img
             id="control-muelle-icon"
