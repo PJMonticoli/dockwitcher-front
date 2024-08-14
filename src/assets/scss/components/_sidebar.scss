@@ -1,7 +1,7 @@
 .sidebar {
   background-color: white; //Cambiar esto por una variable de color (secondary)
   width: 230px;
-  height: auto;
+  height: 100vh;
   color: $primary;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }

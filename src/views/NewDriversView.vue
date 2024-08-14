@@ -110,6 +110,8 @@
 
 <script is:inline>
 import { driversService } from '@/_stores/driversRegister'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 export default {
   data() {
@@ -145,7 +147,7 @@ export default {
         this.errors.telefono = 'El telefono es obligatorio.'
       }
       if (!this.form.fechaCaducidad) {
-        this.errors.telefono = 'La fecha caducidad es obligatoria.'
+        this.errors.fechaCaducidad = 'La fecha caducidad es obligatoria.'
       }
 
       return Object.keys(this.errors).length === 0
@@ -154,17 +156,35 @@ export default {
       if (this.validateForm()) {
         driversService
           .createDriver(this.form)
-          .then((response) => {
-            console.log('Conductor registrado:', response.data)
-            this.$router.push('/drivers')
+          .then(() => {
+            this.showToatSuccess()
+            setTimeout(() => {
+              this.$router.push('/drivers')
+            }, 2000)
           })
           .catch((error) => {
             console.error('Error al registrar el conductor:', error)
-            // Maneja el error
           })
       } else {
+        this.showToatError()
         console.log('Errores en el formulario:', this.errors)
       }
+    },
+    showToatSuccess() {
+      toast.success('¡Registro exitoso!', {
+        autoClose: 3000,
+        position: toast.POSITION.TOP_RIGHT,
+        hideProgressBar: false,
+        pauseOnHover: true
+      })
+    },
+    showToatError() {
+      toast.error('¡Error al registrar!', {
+        autoClose: 3000,
+        position: toast.POSITION.TOP_RIGHT,
+        hideProgressBar: false,
+        pauseOnHover: true
+      })
     }
   }
 }
