@@ -21,35 +21,32 @@ export const driversStore = defineStore('drivers', {
     }
   }),
   actions: {
-    getDrivers(page, size, field, direction) {
-      var params = {
+    getDrivers(page, size, field, direction, search) {
+      const params = {
         page,
         size,
         sort: field,
-        direction
+        direction,
+        search
       }
-      axios
-        .get(`http://localhost:8080/conductores`, {
-          params: params
-        })
-        .then((response) => {
-          this.content = response.data.content
-          this.pagination = {
-            last: response.data.last,
-            totalPages: response.data.totalPages,
-            totalElements: response.data.totalElements,
-            first: response.data.first,
-            size: response.data.size,
-            number: response.data.number
-          }
-          this.sort = {
-            sorted: response.data.sorted,
-            empty: response.data.empty,
-            unsorted: response.data.unsorted,
-            field: field,
-            direction: direction
-          }
-        })
+      axios.get('http://localhost:8080/conductores', { params }).then((response) => {
+        this.content = response.data.content
+        this.pagination = {
+          last: response.data.last,
+          totalPages: response.data.totalPages,
+          totalElements: response.data.totalElements,
+          first: response.data.first,
+          size: response.data.size,
+          number: response.data.number
+        }
+        this.sort = {
+          sorted: response.data.sorted,
+          empty: response.data.empty,
+          unsorted: response.data.unsorted,
+          field: field,
+          direction: direction
+        }
+      })
     }
   }
 })
