@@ -1,20 +1,20 @@
 <script setup>
-import { defineProps} from 'vue';
+import { defineProps } from 'vue'
 
 defineProps({
-      items: {
-      type: Array,
-      default: () => []
-    },
-      headers: {
-      type: Array,
-      default: () => [] 
-    }
-});
-
+  items: {
+    type: Array,
+    default: () => []
+  },
+  headers: {
+    type: Array,
+    default: () => []
+  }
+})
 </script>
 
 <template>
+  <div class="table-responsive-sm">
     <table class="table">
       <thead class="table-light text-uppercase">
         <tr>
@@ -27,4 +27,5 @@ defineProps({
         </tr>
       </tbody>
     </table>
+  </div>
 </template>

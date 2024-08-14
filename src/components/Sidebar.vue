@@ -5,7 +5,8 @@ import { RouterLink } from 'vue-router'
 <template>
   <div class="sidebar">
     <div class="title-container">
-      <h2 class="title">dockwitcher</h2>
+      <h2 class="title mx-2">dockwitcher</h2>
+      <img src="../assets/images/align-right-solid-1.svg" width="24" alt="Menu" />
     </div>
     <div class="line"></div>
     <div class="side-options">
